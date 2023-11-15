@@ -37,19 +37,29 @@
                 <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                <li class="nav-item">
-                <a href="{{ route('home')}}" class="nav-link">
-                    <i class="nav-icon fas fa-tachometer-alt"></i>
-                    <p>
-                        Dashboard
-                        <span class="badge badge-info right">2</span>
-                    </p>
-                </a>
-            </li>
+                    <a href="{{ route('home')}}" class="nav-link">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            Dashboard
+                            <span class="badge badge-info right">2</span>
+                        </p>
+                    </a>
+                </li>
                 <li class="nav-item">
                     <a href="{{ route('profile')}}" class="nav-link">
                         <i class="nav-icon far fa-calendar-alt"></i>
                         <p>
                             Profile
+                            <span class="badge badge-info right">2</span>
+                        </p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('products')}}" class="nav-link">
+                        <i class="nav-icon far fa-calendar-alt"></i>
+                        <p>
+                            Product
                             <span class="badge badge-info right">2</span>
                         </p>
                     </a>
