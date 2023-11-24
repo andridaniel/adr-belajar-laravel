@@ -80,12 +80,12 @@ class HomeController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'namaproduct' => 'required|string',
+            'namaproduct' => 'required|string|max:255',
             'kategoriproduct' => 'required|integer',
-            'kodeproduct' => 'required|string',
-            'deskripsi' => 'nullable|string',
-            'harga' => 'required|numeric',
-            'stock' => 'required|integer',
+            'kodeproduct' => 'required|string|max:10',
+            'deskripsi' => 'nullable|string|max:255',
+            'harga' => 'required|numeric|min:100',
+            'stock' => 'required|integer|min:5',
             'gambar.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
@@ -110,12 +110,12 @@ class HomeController extends Controller
     public function update(Request $request, $id)
     {
     $request->validate([
-        'namaproduct' => 'required|string',
+        'namaproduct' => 'required|string|max:255',
         'kategoriproduct' => 'required|integer',
-        'kodeproduct' => 'required|string',
-        'deskripsi' => 'nullable|string',
-        'harga' => 'required|numeric',
-        'stock' => 'required|integer',
+        'kodeproduct' => 'required|string|max:10',
+        'deskripsi' => 'nullable|string|max:255',
+        'harga' => 'required|numeric|min:100',
+        'stock' => 'required|integer|min:5',
         'gambar.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
     ]);
 
