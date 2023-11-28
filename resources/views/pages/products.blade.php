@@ -62,7 +62,7 @@
                                         <td>{{ $product->stock }}</td>
                                         <td>
                                             @foreach(json_decode($product->image) as $image)
-                                                <img src="{{ asset('assets/img/gambar/' . $image) }}" alt="gambar" width="80"
+                                                <img src="{{ asset('uploads/' . $image) }}" alt="gambar" width="80"
                                                     class="m-2 border border-5"><br>
                                             @endforeach
                                         </td>
