@@ -21,6 +21,52 @@ class HomeController extends Controller
     	return view('pages.profile');
     }
 
+    public function pie()
+    {
+        $productsByCategory = Product::select(
+            'products.category_id',
+            'product_categories.category_name',
+            DB::raw('count(*) as total_produk'),
+            DB::raw('sum(products.price) as total_harga'),
+            DB::raw('sum(products.stock) as total_stok')
+        )
+            ->join('product_categories', 'products.category_id', '=', 'product_categories.id')
+            ->groupBy('products.category_id', 'product_categories.category_name')
+            ->get();
+    
+        $data = [
+            'category_name' => $productsByCategory->pluck('category_name')->toArray(),
+            'total_produk' => $productsByCategory->pluck('total_produk')->toArray(),
+            'total_harga' => $productsByCategory->pluck('total_harga')->toArray(),
+            'total_stok' => $productsByCategory->pluck('total_stok')->toArray(),
+        ];
+    
+        return view('pages.pie')->with('data', $data);
+    }
+
+    public function column()
+    {
+        $productsByCategory = Product::select(
+            'products.category_id',
+            'product_categories.category_name',
+            DB::raw('count(*) as total_produk'),
+            DB::raw('sum(products.price) as total_harga'),
+            DB::raw('sum(products.stock) as total_stok')
+        )
+            ->join('product_categories', 'products.category_id', '=', 'product_categories.id')
+            ->groupBy('products.category_id', 'product_categories.category_name')
+            ->get();
+    
+        $data = [
+            'category_name' => $productsByCategory->pluck('category_name')->toArray(),
+            'total_produk' => $productsByCategory->pluck('total_produk')->toArray(),
+            'total_harga' => $productsByCategory->pluck('total_harga')->toArray(),
+            'total_stok' => $productsByCategory->pluck('total_stok')->toArray(),
+        ];
+    
+        return view('pages.column')->with('data', $data);
+    }
+    
 
     // function untuk menampilkan data product
     public function products(Request $request)

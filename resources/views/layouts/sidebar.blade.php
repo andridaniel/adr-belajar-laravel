@@ -38,39 +38,59 @@
                with font-awesome or any other icon font library -->
                <li class="nav-item">
                     <a href="{{ route('home')}}" class="nav-link">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <i class="nav-icon fas fa-home"></i>
                         <p>
                             Dashboard
-                            <span class="badge badge-info right">2</span>
+                            <span class="badge badge-info right"></span>
                         </p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('profile')}}" class="nav-link">
-                        <i class="nav-icon far fa-calendar-alt"></i>
+                        <i class="nav-icon fas fa-user"></i>
                         <p>
                             Profile
-                            <span class="badge badge-info right">2</span>
+                            <span class="badge badge-info right"></span>
                         </p>
                     </a>
                 </li>
 
                 <li class="nav-item">
                     <a href="{{ route('products')}}" class="nav-link">
-                        <i class="nav-icon far fa-calendar-alt"></i>
+                        <i class="nav-icon fas fa-table"></i>
                         <p>
                             Product
-                            <span class="badge badge-info right">2</span>
+                            <span class="badge badge-info right"></span>
+                        </p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('pie')}}" class="nav-link">
+                        <i class="nav-icon fas fa-chart-pie"></i>
+                        <p>
+                            Pie Charts
+                            <span class="badge badge-info right"></span>
+                        </p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('column')}}" class="nav-link">
+                        <i class="nav-icon fas fa-chart-bar"></i>
+                        <p>
+                            Column Charts
+                            <span class="badge badge-info right"></span>
                         </p>
                     </a>
                 </li>
                 
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
-    
                         <x-responsive-nav-link :href="route('logout')"
                                 onclick="event.preventDefault();
                                             this.closest('form').submit();">
+                             <i class="nav-icon fas fa-power-off"></i>
                             {{ __('Log Out') }}
                         </x-responsive-nav-link>
                     </form>

@@ -40,6 +40,8 @@ Route::middleware('auth')->group( function () {
     Route::put('/update/{id}', [HomeController::class, 'update'])->name('update');
     Route::delete('/delete/{id}', [HomeController::class, 'delete'])->name('delete');
     Route::get('/search', [HomeController::class, 'search'])->name('search');
+    Route::get('/pie', [HomeController::class, 'pie'])->name('pie');
+    Route::get('/column', [HomeController::class, 'column'])->name('column');
 });
 
 require __DIR__.'/auth.php';
