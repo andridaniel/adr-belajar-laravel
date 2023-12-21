@@ -15,9 +15,15 @@
                 <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Alexander Pierce</a>
+                <a href="#" class="d-block">
+                    @auth
+                    {{ auth()->user()->name }}
+                    @endauth
+                    ({{ auth()->user()->role }})
+                </a>
             </div>
         </div>
+
 
         <!-- SidebarSearch Form -->
         <div class="form-inline">
@@ -54,7 +60,7 @@
                         </p>
                     </a>
                 </li>
-
+                @if (auth()->user()->role == 'admin')
                 <li class="nav-item">
                     <a href="{{ route('products')}}" class="nav-link">
                         <i class="nav-icon fas fa-table"></i>
@@ -64,6 +70,7 @@
                         </p>
                     </a>
                 </li>
+                @endif
 
                 <li class="nav-item">
                     <a href="{{ route('pie')}}" class="nav-link">

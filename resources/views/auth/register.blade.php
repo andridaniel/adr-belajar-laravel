@@ -9,6 +9,18 @@
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
 
+        {{-- Role --}}
+        <div class="mb-4">
+            <label for="role" class="block text-sm font-medium text-gray-700">Pilih Peran:</label>
+            <select id="role" name="role" class="block w-full mt-1 p-2 border rounded-md">
+                <option value="user" {{ old('role') === 'user' ? 'selected' : '' }}>User</option>
+                <option value="admin" {{ old('role') === 'admin' ? 'selected' : '' }}>Admin</option>
+            </select>
+            @error('role')
+                <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+            @enderror
+        </div>
+
         <!-- Email Address -->
         <div class="mt-4">
             <x-input-label for="email" :value="__('Email')" />

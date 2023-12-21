@@ -30,9 +30,7 @@ Route::middleware('auth')->group(function () {
 });
 
 
-Route::middleware('auth')->group( function () {
-    Route::get('/dashboard', [HomeController::class, 'index'])->name('home');
-    Route::get('/profile', [HomeController::class, 'profile'])->name('profile');
+Route::group(['middleware' =>['auth', 'cekrole:admin']], function () {
     Route::get('/products', [HomeController::class, 'products'])->name('products');
     Route::get('/create', [HomeController::class, 'create'])->name('create');
     Route::post('/store', [HomeController::class, 'store'])->name('store');
@@ -40,6 +38,11 @@ Route::middleware('auth')->group( function () {
     Route::put('/update/{id}', [HomeController::class, 'update'])->name('update');
     Route::delete('/delete/{id}', [HomeController::class, 'delete'])->name('delete');
     Route::get('/search', [HomeController::class, 'search'])->name('search');
+});
+
+Route::group(['middleware' =>['auth', 'cekrole:admin,user']], function () {
+    Route::get('/dashboard', [HomeController::class, 'index'])->name('home');
+    Route::get('/profile', [HomeController::class, 'profile'])->name('profile');
     Route::get('/pie', [HomeController::class, 'pie'])->name('pie');
     Route::get('/column', [HomeController::class, 'column'])->name('column');
 });
